@@ -1,3 +1,4 @@
+block variable
 doctype html
 html(lang="ru")
 head
@@ -7,10 +8,12 @@ head
   meta(name="description", content="")
   meta(name="keywords", content="")
 
-  title New Project
+  title #{title}
   link(rel="stylesheet", href="assets/css/foundation.css")
   link(rel="stylesheet", href="assets/css/app.css")
 body
+
+  include global/header.pug
 
   block content
 

@@ -1,8 +1,10 @@
 extends ../template.pug
 
-block content
-  include ../global/header.pug
+block variable
+  - var title = 'Index'
 
-  p It works!
+block content
+
+  p It works! #{title} page
 
   include ../blocks/block.pug
