@@ -24,7 +24,7 @@ var paths = {
 
 // Files
 var foundationJs = [
-  ''
+  'node_modules/jquery/dist/jquery.min.js'
 ];
 
 var foundationCss = [
