@@ -20,6 +20,16 @@
   content: ''; display: block; position: absolute;
 }
 
+.uniPic {
+  position: relative; overflow: hidden;
+  & > img {
+    position: absolute;
+    min-width: 100%; max-width: 110%;
+    min-height: 100%;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+  }
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
