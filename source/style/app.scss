@@ -1,6 +1,26 @@
 @import 'common/media';
 
-* {
+// CLEARFIX
+@mixin clearfix {
+  &:after {
+    content: ''; display: block;
+    height: 0; clear: both; visibility: hidden; }
+}
+
+// PLACEHOLDER
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &:-moz-placeholder { @content; }
+}
+
+// PSEUDO
+@mixin pseudo {
+  content: ''; display: block; position: absolute;
+}
+
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
