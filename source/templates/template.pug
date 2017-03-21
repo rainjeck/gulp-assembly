@@ -13,6 +13,14 @@ head
   link(rel="stylesheet", href="assets/css/app.css")
 body
 
+  mixin fa(icon)
+    i(class="fa fa-" +icon, aria-hidden="true")
+  mixin svg(className, icon)
+    svg(class= className): use(xlink:href="/assets/images/sprite.svg#" + icon)
+  mixin uniPic(className, imgPath)
+    div(class="uniPic " + className): img(src= imgPath)
+    
+
   include global/header.pug
 
   block content
