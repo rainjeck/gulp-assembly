@@ -1,30 +1,34 @@
 block variable
 doctype html
 html(lang="ru")
-head
-  meta(charset="UTF-8")
-  meta(name="viewport", content="width=device-width, initial-scale=1")
-  meta(name="author", content="https://freelance.ru/Nadin85/")
-  meta(name="description", content="")
-  meta(name="keywords", content="")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="author", content="https://vk.com/tishukn")
+    meta(name="description", content="")
+    meta(name="keywords", content="")
 
-  title #{title}
-  link(rel="stylesheet", href="assets/css/foundation.css")
-  link(rel="stylesheet", href="assets/css/app.css")
-body
+    title #{title}
 
-  mixin fa(icon)
-    i(class="fa fa-" +icon, aria-hidden="true")
-  mixin svg(className, icon)
-    svg(class= className): use(xlink:href="/assets/images/sprite.svg#" + icon)
-  mixin uniPic(className, imgPath)
-    div(class="uniPic " + className): img(src= imgPath)
-    
+    link(rel="stylesheet", href="assets/css/foundation.css")
+    link(rel="stylesheet", href="assets/css/app.css")
+  body
 
-  include global/header.pug
+    include blocks/_mixin.pug
 
-  block content
+    // HEADER
+    include global/_header.pug
+    // .HEADER
 
-  // scripts
-  script(src="assets/js/foundation.js")
-  script(src="assets/js/app.js")
+    // CONTENT
+    block content
+    // .CONTENT
+
+    // FOOTER
+    include global/_footer.pug
+    // .FOOTER
+
+    // scripts
+    script(src="assets/js/foundation.js")
+    script(src="assets/js/app.js")

@@ -1,0 +1,45 @@
+$width: 100%; // base width
+$column: 12; // number of column
+$padding: 0; // padding in column
+$margin: 0; // margin in column
+$breakpoints: // adaptive
+  (xs, 400px)
+  (sm, 550px)
+  (md, 750px)
+  (lg, 1000px)
+;
+
+.row {
+  margin: 0;
+  padding: 0;
+  &:after {
+    content: ''; display: blaock;
+  height: 0; clear: both; visibility: hidden;
+  }
+}
+
+//for all columns
+[class*='col-']  {
+  padding: $padding;
+  margin: $margin;
+  float: left;
+}
+
+// base column
+@for $i from 1 through $column {
+  .col-#{$i} {
+    width: ($i*$width)/$column;
+  }
+};
+
+//media screen - adaptive grid
+@each $breakName, $breakSize in $breakpoints {
+  /* media screen #{$breakName} */
+  @media screen and (min-width: #{$breakSize}){
+    @for $i from 1 through $column {
+      .col-#{$breakName}-#{$i} {
+        width: ($i*$width)/$column;
+      }
+    }
+  }
+}

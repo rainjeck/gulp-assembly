@@ -9,9 +9,9 @@
   "author": "Tishuk Nadezda",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/rainjeck/gulp-assembly"
   },
-  "homepage": "https://github.com/ashleygwilliams/my_package",
+  "homepage": "https://github.com/rainjeck/gulp-assembly",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "*",
@@ -30,6 +30,7 @@
     "gulp.spritesmith": "*"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "jquery": "*",
     "normalize.css": "*"
   }

@@ -85,9 +85,10 @@ gulp.task('sprite:png', function() {
   .pipe(spritesmith({
     algorithm: 'left-right',
     padding: 40,
+    imgPath: '../images/sprite.png',
     imgName: 'sprite.png',
-    cssName: '../sprites/spritePng.css',
-    cssFormat: 'css'
+    cssName: '../sprites/spritePng.scss',
+    cssFormat: 'scss'
   }));
   return spriteData.pipe(gulp.dest(paths.source + '/images'));
 });
