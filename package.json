@@ -30,7 +30,6 @@
     "gulp.spritesmith": "*"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
     "jquery": "*",
     "normalize.css": "*"
   }

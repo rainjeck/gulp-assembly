@@ -1,38 +1,11 @@
-@import 'common/media';
-
-// CLEARFIX
-@mixin clearfix {
-  &:after {
-    content: ''; display: block;
-    height: 0; clear: both; visibility: hidden; }
-}
-
-// PLACEHOLDER
-@mixin placeholder {
-  &::-webkit-input-placeholder { @content; }
-  &::-moz-placeholder { @content; }
-  &:-ms-input-placeholder { @content; }
-  &:-moz-placeholder { @content; }
-}
-
-// PSEUDO
-@mixin pseudo {
-  content: ''; display: block; position: absolute;
-}
-
-.uniPic {
-  position: relative; overflow: hidden;
-  & > img {
-    position: absolute;
-    min-width: 100%; max-width: 110%;
-    min-height: 100%;
-    top: 50%; left: 50%; transform: translate(-50%,-50%);
-  }
-}
+@import 'common/_media';
+@import 'common/_mixin';
 
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
+
 
 html {
   height: 100%;
@@ -40,4 +13,15 @@ html {
 
 body {
   height: 100%;
+}
+
+// import
+@import 'common/_header';
+@import 'common/_footer';
+
+input[type=text],
+input[type=submit],
+button {
+  outline: none;
+  display: block;
 }

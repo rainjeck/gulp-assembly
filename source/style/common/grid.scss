@@ -1,13 +1,29 @@
-$width: 100%; // base width
-$column: 12; // number of column
-$padding: 0; // padding in column
-$margin: 0; // margin in column
-$breakpoints: // adaptive
+// Width
+$width: 100%;
+// number of columns
+$column: 12;
+
+// spacings
+$padding: 0;
+$margin: 0;
+
+// breakpoints
+$breakpoints:
   (xs, 400px)
-  (sm, 550px)
-  (md, 750px)
-  (lg, 1000px)
+  (sm, 600px)
+  (md, 900px)
+  (lg, 1140px)
 ;
+
+/*---------------------------------------
+    BOOTSTRAP
+
+  $large: 1200px;
+  $desktop: 992px;
+  $tablet: 768px;
+  $phone: 480px;
+-----------------------------------------*/
+
 
 .row {
   margin: 0;

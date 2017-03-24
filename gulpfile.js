@@ -140,7 +140,7 @@ gulp.task('sass', function() {
   return gulp.src(sassFiles)
     .pipe(sourcemaps.init())
       .pipe(sass().on('error', notify.onError({ title: 'SCSS'})))
-      .pipe(autoprefixer({ browsers: ['last 3 version', '> 1%', 'ie 8', 'ie 9', 'Opera 12.1']
+      .pipe(autoprefixer({ browsers: ['last 5 version', '> 1%', 'ie 8', 'ie 9', 'Opera 12.1']
         }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.assets + '/css'))
