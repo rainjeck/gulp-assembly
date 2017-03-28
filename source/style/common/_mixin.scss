@@ -1,5 +1,5 @@
 // CLEARFIX
-@mixin clearfix {
+@mixin clfix {
   &:after {
     content: ''; display: block;
     height: 0; clear: both; visibility: hidden; }
@@ -16,6 +16,12 @@
 // PSEUDO
 @mixin pseudo {
   content: ''; display: block; position: absolute;
+}
+
+@mixin cbox {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 @mixin unipic {
