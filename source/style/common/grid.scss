@@ -9,10 +9,10 @@ $margin: 0;
 
 // breakpoints
 $breakpoints:
-  (xs, 400px)
-  (sm, 600px)
-  (md, 900px)
   (lg, 1140px)
+  (md, 900px)
+  (sm, 600px)
+  (xs, 480px)
 ;
 
 /*---------------------------------------
@@ -24,7 +24,7 @@ $breakpoints:
   $phone: 480px;
 -----------------------------------------*/
 
-
+/* for floats */
 .row {
   margin: 0;
   padding: 0;
@@ -34,24 +34,33 @@ $breakpoints:
   }
 }
 
-//for all columns
-[class*='col-']  {
+/* floats columns */
+/* [class*='col-']  {
   padding: $padding;
   margin: $margin;
   float: left;
+} */
+
+/* for inline columns */
+[class*='col-'] {
+  display: inline-block;
+  vertical-align: text-top;
+  margin-right: -0.3em;
+  position: relative;
+  padding: $padding;
 }
 
-// base column
+/* base column */
 @for $i from 1 through $column {
   .col-#{$i} {
     width: ($i*$width)/$column;
   }
 };
 
-//media screen - adaptive grid
+/* media screen - adaptive grid */
 @each $breakName, $breakSize in $breakpoints {
   /* media screen #{$breakName} */
-  @media screen and (min-width: #{$breakSize}){
+  @media screen and (max-width: #{$breakSize}){
     @for $i from 1 through $column {
       .col-#{$breakName}-#{$i} {
         width: ($i*$width)/$column;
