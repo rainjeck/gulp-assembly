@@ -52,18 +52,14 @@ gulp.task('clean', function() {
 // FoundationJs Concat
 gulp.task('foundation:js', function() {
   return gulp.src(foundationJs)
-    .pipe(sourcemaps.init())
-      .pipe(concat('foundation.js'))
-    .pipe(sourcemaps.write())
+    .pipe(concat('foundation.js'))
     .pipe(gulp.dest(paths.assets + '/js'));
 });
 
 // FoundationCss Concat
 gulp.task('foundation:css', function(){
   return gulp.src(foundationCss)
-    .pipe(sourcemaps.init())
-      .pipe(concat('foundation.css'))
-    .pipe(sourcemaps.write())
+    .pipe(concat('foundation.css'))
     .pipe(gulp.dest(paths.assets + '/css'))
 });
 
