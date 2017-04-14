@@ -162,16 +162,8 @@ gulp.task('build', [
     // do more stuff
 });
 
-// Watch
-gulp.task('watch', ['build'], function() {
-  console.log('Start watch');
-  gulp.watch(paths.source + '/js/**/*.js', ['js']);
-  gulp.watch(paths.source + '/style/**/*.scss', ['sass']);
-  gulp.watch(paths.source + '/templates/**/*.pug', ['pug']);
-});
-
 // Default
-gulp.task('default', ['build'], function() {
+gulp.task('default', function() {
 
   gulp.watch(paths.source + '/js/**/*.js', ['js']);
   gulp.watch(paths.source + '/style/**/*.scss', ['sass']);
