@@ -1,0 +1,17 @@
+{
+  "name": "assembly",
+  "description": "nadin_frog assembly",
+  "main": "index.js",
+  "authors": [
+    "Tishuk Nadezda"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/rainjeck/gulp-assembly",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
