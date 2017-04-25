@@ -1,0 +1,36 @@
+/*
+ * BREAK POINTS
+ *
+ * Large < 1140px
+ * Desktop < 900px
+ * Laptop < 600px
+ * Phone < 400px
+ *
+*/
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+input[type=text],
+input[type=submit],
+button {
+  outline: none;
+  display: block;
+  width: 100%;
+  background-color: none;
+  font-size: inherit;
+  font-family: inherit; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%; }
+
+/*---------------------------------------
+    HEADER
+-----------------------------------------*/
+/*---------------------------------------
+    FOOTER
+-----------------------------------------*/
+
+/*# sourceMappingURL=../maps/app.css.map */

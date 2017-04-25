@@ -12,3 +12,6 @@
   }
   module.init();
 }());
+
+console.log('It works');
+//# sourceMappingURL=../maps/app.js.map
