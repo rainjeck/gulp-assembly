@@ -1,0 +1,36 @@
+//Bootstrap:
+// $large: 1200px;
+// $desktop: 992px;
+// $tablet: 768px;
+// $phone: 480px;
+
+$large: 1140px;
+$desktop: 900px;
+$tablet: 600px;
+$phone: 400px;
+
+/*
+ * BREAK POINTS
+ *
+ * Large < #{$large}
+ * Desktop < #{$desktop}
+ * Laptop < #{$tablet}
+ * Phone < #{$phone}
+ *
+*/
+
+@mixin large {
+  @media (max-width: $large) { @content; }
+}
+
+@mixin desktop {
+  @media (max-width: $desktop) { @content; }
+}
+
+@mixin laptop {
+  @media (max-width: $laptop) { @content; }
+}
+
+@mixin phone {
+  @media (max-width: $phone ) { @content; }
+}

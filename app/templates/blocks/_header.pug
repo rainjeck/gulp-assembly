@@ -1,0 +1,14 @@
+-
+  var menu = [
+    { 'title': 'Пункт 1', 'urlName': 'one' },
+    { 'title': 'Пункт 2', 'urlName': 'two' }
+  ]
+
+mixin menu(className,idName)
+  ul(class= className, id= idName)
+    each item in menu
+      li: a(href= item.urlName + '.html') #{item.title}
+
+header.header
+  nav.nav
+    +menu('menu','')

@@ -1,0 +1,31 @@
+@import '../_media';
+@import '../_mixin';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+input[type=text],
+input[type=submit],
+button {
+  outline: none;
+  display: block;
+  width: 100%;
+  background-color: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+
+// import
+@import '../_header';
+@import '../_footer';
