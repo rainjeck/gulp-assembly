@@ -1,0 +1,54 @@
+/*
+ * BREAK POINTS
+ *
+ * Large < 1200px
+ * Desktop < 900px
+ * Tablet < 600px
+ * Phone < 420px
+ *
+*/
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html {
+  height: 100%;
+  width: 100%; }
+
+body {
+  height: 100%;
+  font-size: 16px; }
+  @media (max-width: 900px) {
+    body {
+      font-size: 14px; } }
+
+p {
+  line-height: 1.6; }
+
+input,
+textarea,
+button {
+  border: 0;
+  outline: 0;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear; }
+
+input[type=submit],
+input[type=reset],
+button {
+  cursor: pointer; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; }
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden; }
+
+/*# sourceMappingURL=../maps/app.css.map */

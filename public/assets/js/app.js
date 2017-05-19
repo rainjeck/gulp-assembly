@@ -1,14 +1,17 @@
+/*
+  Dependencies:
+  * jQyery (https://jquery.com/)
+*/
+// module
 (function () {
   var module = {
     init: function () {
       this.listeners();
     },
     listeners: function () {
-      window.addEventListener('load', module.show );
-    },
-    show: function () {
-      console.log('module');
+      console.log('It works!');
     }
   }
   module.init();
 }());
+//# sourceMappingURL=../maps/app.js.map

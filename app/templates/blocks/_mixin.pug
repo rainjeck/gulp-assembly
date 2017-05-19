@@ -9,3 +9,14 @@ mixin svg(className, icon)
 //- Universal Picture in block
 mixin uniPic(className, imgPath)
   div(class="uniPic " + className): img(src= imgPath)
+
+-
+  var menu = [
+    { 'title': 'Пункт 1', 'urlName': 'url1' },
+    { 'title': 'Пункт 2', 'urlName': 'url2' }
+  ]
+
+mixin menu(className,idName)
+  ul(class= className, id= idName)
+    each item in menu
+      li: a(href= item.urlName + '.html') #{item.title}

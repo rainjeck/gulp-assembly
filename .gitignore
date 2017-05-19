@@ -34,7 +34,7 @@ bower_components
 dist
 build
 test
-public
+app
 
 # Files to ignore
 sprite.scss
