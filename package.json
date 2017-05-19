@@ -20,7 +20,6 @@
     "gulp-autoprefixer": "*",
     "gulp-cheerio": "*",
     "gulp-concat": "*",
-    "gulp-folder": "^1.0.1",
     "gulp-notify": "*",
     "gulp-pug": "*",
     "gulp-replace": "*",
