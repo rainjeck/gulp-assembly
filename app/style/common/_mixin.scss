@@ -1,0 +1,40 @@
+// CLEARFIX
+@mixin clfix {
+  &:after {
+    content: ''; display: block;
+    height: 0; clear: both; visibility: hidden; }
+}
+
+@mixin cbox {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+// PLACEHOLDER
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &:-moz-placeholder { @content; }
+}
+
+// PSEUDO
+@mixin pseudo {
+  content: ''; display: block; position: absolute;
+}
+
+// TRANSITION
+@mixin transition {
+  transition: all 0.25s linear;
+}
+
+@mixin unipic {
+  position: relative; overflow: hidden;
+  & > img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%; max-height: 100%;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+  }
+}

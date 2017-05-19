@@ -1,0 +1,52 @@
+@import 'common/_media';
+@import 'common/_mixin';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  font-size: 16px;
+  @include desktop {
+    font-size: 14px;
+  }
+}
+
+p {
+  line-height: 1.6;
+}
+
+input,
+textarea,
+button {
+  border: 0; outline: 0;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  @include transition;
+}
+
+input[type=submit],
+input[type=reset],
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+// import

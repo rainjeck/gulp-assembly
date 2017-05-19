@@ -34,10 +34,7 @@ bower_components
 dist
 build
 test
-app
-
-# Files to ignore
-sprite.scss
+public
 
 # Node.JS
 node_modules
