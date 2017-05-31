@@ -38,3 +38,38 @@
     top: 50%; left: 50%; transform: translate(-50%,-50%);
   }
 }
+
+.hamburger {
+  position: relative;
+  height: 16px; width: 24px;
+  span, &:before, &:after {
+    @include pseudo;
+    width: 100%;
+    height: 4px;
+    background: #000;
+    border-radius: 4px;
+  }
+  &:before {
+    top: 0;
+  }
+  span {
+    top: 6px;
+  }
+  &:after {
+    bottom: 0;
+  }
+
+  &.active {
+    span {
+      background: none;
+    }
+    &:before {
+      top: 6px;
+      transform: rotate(45deg);
+    }
+    &:after {
+      top: 6px;
+      transform: rotate(-45deg);
+    }
+  }
+}
