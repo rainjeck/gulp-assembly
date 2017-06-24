@@ -2,12 +2,12 @@ var mkdirp = require('mkdirp');
 
 var obj = [
   'app',
-    'app/fonts',
-    'app/images',
-    'app/plugins',
-    'app/sprites',
-      'app/sprites/png',
-      'app/sprites/svg'
+  'app/fonts',
+  'app/images',
+  'app/plugins',
+  'app/sprites',
+  'app/sprites/png',
+  'app/sprites/svg'
 ];
 
 obj.forEach( function(element, index) {

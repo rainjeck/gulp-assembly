@@ -11,19 +11,17 @@ html(lang="ru")
 
     title #{title}
 
-    link(rel="stylesheet", href="assets/css/foundation.css")
     link(rel="stylesheet", href="assets/css/app.css")
 
   body#top
-    include ../blocks/_mixin.pug
+    include _mixins.pug
 
     div.wrapper
-      include ../global/_header.pug
+      include _b_header.pug
       main
         block content
-      include ../global/_footer.pug
+      include _b_footer.pug
     // .wrapper
 
     // scripts
-    script(src="assets/js/foundation.js")
     script(src="assets/js/app.js")
