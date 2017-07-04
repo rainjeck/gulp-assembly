@@ -1,42 +1,34 @@
-@import '_media';
-@import '_mixins';
-
-*, *:before, *:after { box-sizing: border-box; }
+@import '_settings';
+@import '_framework';
 
 html {
   height: 100%;
   width: 100%;
+  font-size: 16px;
+  @include desktop {
+    font-size: 14px;
+  }
+  @include tablet {
+    font-size: 12px;
+  }
+  @include phone {
+    font-size: 11px;
+  }
 }
 
 body {
   height: 100%;
-}
-
-input,
-textarea,
-button {
-  border: 0; outline: 0;
-  background: none;
-  font-family: inherit;
-  font-size: inherit;
-  @include transition;
-}
-
-input[type=submit],
-input[type=reset],
-button {
-  cursor: pointer;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+  font-family: ;
+  color: ;
+  font-weight: ;
   position: relative;
 }
 
-.wrapper {
-  min-height: 100%;
-  overflow: hidden;
+@import '_elements';
+
+.container {
+  max-width: $width;
+  margin: 0 auto;
 }
 
 // import

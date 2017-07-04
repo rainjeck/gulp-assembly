@@ -1,0 +1,89 @@
+// SETTINGS
+$large: 1200px;
+$desktop: 900px;
+$tablet: 640px;
+$phone: 480px;
+
+$width: 1170px;
+
+@mixin clfix {
+  &:after { content: ''; display: block; height: 0; clear: both; visibility: hidden; }
+}
+
+/* GRID */
+
+// number of columns
+$column: 12;
+
+// breakpoints
+$breakpoints:
+  (lg, $large)
+  (md, $desktop)
+  (sm, $tablet)
+  (xs, $phone)
+;
+
+/* row */
+.row {
+  max-width: $width;
+  margin: 0 auto;
+  padding: 0;
+  @include clfix;
+}
+
+/* FLOAT COLUMNS */
+[class*='col-']  {
+  position: relative;
+  padding: 0 1rem;
+  margin: 0;
+  float: left;
+}
+
+/* COLUMNS */
+@for $i from 1 through $column {
+  .col-#{$i} {
+    width: ($i*100%)/$column;
+  }
+};
+
+/* COLUMNS ADAPTIVE */
+@each $breakName, $breakSize in $breakpoints {
+  /* media screen #{$breakName} */
+  @media screen and (max-width: #{$breakSize}){
+    @for $i from 1 through $column {
+      .col-#{$breakName}-#{$i} {
+        width: ($i*100%)/$column;
+      }
+    }
+  }
+}
+
+/* CARDS (inline columns) */
+[class*='card-'] {
+  display: inline-block;
+  vertical-align: text-top;
+  position: relative;
+  padding: 0 15px;
+  & + & {
+    margin-left: -0.3em;
+  }
+}
+
+/* CARDS */
+@for $i from 1 through $column {
+  .card-#{$i} {
+    width: ($i*100%)/$column;
+  }
+};
+
+/* CARDS ADAPTIVE */
+@each $breakName, $breakSize in $breakpoints {
+  /* media screen #{$breakName} */
+  @media screen and (max-width: #{$breakSize}){
+    @for $i from 1 through $column {
+      .card-#{$breakName}-#{$i} {
+        width: ($i*100%)/$column;
+      }
+    }
+  }
+}

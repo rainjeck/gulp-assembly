@@ -4,10 +4,11 @@ var obj = [
   'app',
   'app/fonts',
   'app/images',
-  'app/plugins',
+  'app/vendor',
   'app/sprites',
   'app/sprites/png',
-  'app/sprites/svg'
+  'app/sprites/svg',
+  'app/php',
 ];
 
 obj.forEach( function(element, index) {

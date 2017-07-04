@@ -28,6 +28,7 @@
     "gulp-svg-sprite": "*",
     "gulp-svgmin": "*",
     "gulp.spritesmith": "*",
+    "gulp-css-unit": "*",
     "mkdirp": "^0.5.1"
   }
 }

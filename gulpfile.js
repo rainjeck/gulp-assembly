@@ -12,8 +12,8 @@ var
   svgSprite = require('gulp-svg-sprite'),
   notify = require("gulp-notify"),
   autoprefixer = require('gulp-autoprefixer'),
-  bs = require('browser-sync').create(),
-  reload = bs.reload;
+  cssunit = require('gulp-css-unit'),
+  bs = require('browser-sync').create();
 
 // Paths
 var paths = {
@@ -24,28 +24,30 @@ var paths = {
 /*
   FILES
 */
-  // Basis JS
-var basisJs = [
-  'bower_components/jquery/dist/jquery.min.js'
+  // Vendor JS
+var vendorJs = [
+  'bower_components/jquery/dist/jquery.min.js',
 ];
-  // Basis CSS
-var basisCss = [
-  'bower_components/normalize-css/normalize.css'
+  // Vendor CSS
+var vendorCss = [
+  'bower_components/normalize-css/normalize.css',
 ];
 
   // App JS
 var appJs = [
   paths.app + '/js/_app.js',
-  paths.app + '/js/js_*.js'
+  paths.app + '/js/js_*.js',
 ];
 
   // APP Sass
 var appSass = [
   paths.app + '/style/app.scss',
+  paths.app + '/style/grid.scss',
 ];
 
+  // APP Pug
 var appPug = [
-  paths.app + '/templates/*.pug'
+  paths.app + '/templates/*.pug',
 ];
 
 // Delete Public folder before start
@@ -53,15 +55,27 @@ gulp.task('clean', function() {
   return del.sync([ paths.public ]);
 });
 
-// basisJs Copy
-gulp.task('foundation:js', function() {
-  return gulp.src(basisJs)
+// vendorJs Copy
+gulp.task('foundation:js', ['vendor:js'], function() {
+  return gulp.src(vendorJs)
     .pipe(gulp.dest(paths.public + '/js'));
 });
+// concat vendor js
+gulp.task('vendor:js', function () {
+  return gulp.src(vendorJs)
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest(paths.public + '/js'))
+});
 
-// basisCss Copy
-gulp.task('foundation:css', function(){
-  return gulp.src(basisCss)
+// vendorCss Copy
+gulp.task('foundation:css', ['vendor:css'], function(){
+  return gulp.src(vendorCss)
+    .pipe(gulp.dest(paths.public + '/css'))
+});
+// concat vendor css
+gulp.task('vendor:css', function () {
+  return gulp.src(vendorCss)
+    .pipe(concat('vendor.css'))
     .pipe(gulp.dest(paths.public + '/css'))
 });
 
@@ -69,6 +83,12 @@ gulp.task('foundation:css', function(){
 gulp.task('copy:fonts', function() {
   return gulp.src(paths.app + '/fonts/*.*')
     .pipe(gulp.dest(paths.public + '/fonts/'))
+});
+
+// Copy PHP
+gulp.task('copy:php', function() {
+  return gulp.src(paths.app + '/php/**/*.*')
+    .pipe(gulp.dest(paths.public + '/php/'))
 });
 
 // Sprite PNG
@@ -124,6 +144,11 @@ gulp.task('copy:images', ['sprite:png', 'sprite:svg'], function() {
     .pipe(gulp.dest(paths.public + '/images/'))
 });
 
+gulp.task('copy:uploads', function() {
+  return gulp.src(paths.app + '/uploads/**/*.*')
+    .pipe(gulp.dest(paths.public + '/uploads/'))
+});
+
 // Js
 gulp.task('js', function() {
   return gulp.src(appJs)
@@ -140,6 +165,10 @@ gulp.task('sass', function() {
       .pipe(sass().on('error', notify.onError({ title: 'SCSS'})))
       .pipe(autoprefixer({ browsers: ['last 5 version', '> 1%', 'ie 8', 'ie 9', 'Opera 12.1']
         }))
+      .pipe(cssunit({
+        type: 'px-to-rem',
+        rootSize: 16,
+      }))
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.public + '/css/'))
 });
@@ -148,30 +177,33 @@ gulp.task('sass', function() {
 gulp.task('pug', function() {
   return gulp.src(appPug)
     .pipe( pug({pretty: true}) )
+      .on('error', notify.onError(function(err) { return { title: 'PUG', message: err.message }
+        }))
     .pipe(gulp.dest(paths.public))
 });
 
 // Build
-gulp.task('build', ['clean', 'copy:images', 'copy:fonts', 'foundation:js', 'foundation:css',
+gulp.task('build', ['clean', 'copy:images', 'copy:uploads', 'copy:fonts', 'copy:php', 'foundation:js', 'foundation:css',
   'js', 'sass', 'pug'], function() {});
 
 // Watch
-gulp.task('watch', ['build'], function() {
+gulp.task('watch', ['build', 'connect'], function() {
   gulp.watch(paths.app + '/**/*.js', ['js']);
   gulp.watch(paths.app + '/**/*.scss', ['sass']);
   gulp.watch(paths.app + '/**/*.pug', ['pug']);
 });
 
+gulp.task('reload', ['js', 'sass', 'pug', 'copy:php'], function (done) {
+    bs.reload();
+    done();
+});
+
 // Default
 gulp.task('default', ['build'], function() {
-  gulp.watch(paths.app + '/**/*.js', ['js']);
-  gulp.watch(paths.app + '/**/*.scss', ['sass']);
-  gulp.watch(paths.app + '/**/*.pug', ['pug']);
-
   bs.init({
     open: false,
     server: "./public/",
     notify: false
   });
-  bs.watch(['./public/**/*.*'], bs.reload);
+  gulp.watch(paths.app + '/**/*{.js,.scss,.pug,.php}', ['reload']);
 });
