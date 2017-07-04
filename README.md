@@ -6,4 +6,5 @@ Getting started:
  2. npm i
  3. bower i
  4. node structure.js - make file structure in 'app'
- 5. gulp
+ 5. bower i jquery normalize-css
+ 6. gulp
