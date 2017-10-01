@@ -15,8 +15,13 @@ Tech: [Less](http://lesscss.org/3.x/), [Pug](https://pugjs.org/api/getting-start
 
 ### File structure
 | -- js
+
 | -- less
+
 | -- template
+
 | -- images
+
 |   --  -- png
+
 |   --  -- svg
