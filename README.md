@@ -1,10 +1,22 @@
 # Working gulp-assembly
 
-Getting started:
+[Node.js](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads), [Yarn](https://yarnpkg.com/en/docs/install)
 
- 1. git clone
- 2. npm i
- 3. bower i
- 4. node structure.js - make file structure in 'app'
- 5. bower i jquery normalize-css
- 6. gulp
+Tech: [Less](http://lesscss.org/3.x/), [Pug](https://pugjs.org/api/getting-started.html)
+
+## Start
+
+ 1. `git clone`
+ 2. `npm run start` - this command run `yarn install`, next `gulp build`, next `gulp watch`.
+ 
+## Work
+ * `gulp build` - build project
+ * `gulp watch` - watch files
+
+### File structure
+| -- js
+| -- less
+| -- template
+| -- images
+|   --  -- png
+|   --  -- svg

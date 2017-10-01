@@ -1,0 +1,71 @@
+block variable
+
+//- FontAwesome
+mixin fa( iconName )
+  i(class="fa fa-" +iconName, aria-hidden="true")
+
+//- SVG
+mixin svg( className, iconName )
+  svg(class= className): use(xlink:href="images/sprite.svg#" + iconName)
+
+doctype html
+html(lang="ru")
+
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="author", content="https://vk.com/tishukn")
+    meta(name="description", content="Заполните это поле для сниппета поисковика")
+    meta(name="application-name" content="Название для мобильников при добавлении на главный экран")
+
+    title #{title}
+
+    base(href="/")
+
+
+    //- link(rel="shortcut icon" href="images/favicon.ico" type="image/x-icon")
+
+    // CSS Vendor
+    link(rel="stylesheet", href="css/vendor.css")
+
+    //- Fonts
+    //-link(rel="stylesheet", href="fonts/fonts.css")
+
+    // CSS App
+    link(rel="stylesheet", href="css/app.css")
+
+  body#top
+
+    .wrapper
+      .main
+
+        // HEADER
+        header.header
+          .container
+
+            input.hamburger-switcher#hamburger(type="checkbox")
+            label.hamburger(for="hamburger"): span
+
+            .main-menu
+              li.main-menu__item: a(href="#") Point 1
+              li.main-menu__item: a(href="#") Point 2
+
+            p Шапочка
+        // .HEADER
+
+        // CONTENT
+        section.content
+          .container
+            block content
+        // .CONTENT
+
+      // FOOTER
+      footer.footer
+        .container
+          p Подвальчик
+      // .FOOTER
+
+    // scripts
+    script(src="js/vendor.js")
+    script(src="js/app.js")

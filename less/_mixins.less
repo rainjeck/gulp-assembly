@@ -1,0 +1,81 @@
+@import "_variables.less";
+
+//
+// MIXINS
+//
+
+// transition
+.transition( @target: all, @duration: 0.25s, @animation: linear ) {
+  transition: @target @duration @animation;
+}
+
+// clearfix
+.clfix() {
+
+	&:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+
+}
+
+// centered image in relative div
+.centered() {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+// Convert px to rem
+// Use: 123/@rem;
+@rem: @font-size / 1rem;
+
+//
+// Breackpoints
+//
+@lg: ~"(max-width: 1200px)";
+@md: ~"(max-width: 992px)";
+@sm: ~"(max-width: 768px)";
+@xs: ~"(max-width: 480px)";
+
+//
+// Generate grid
+//
+.grid(@name: col, @columns, @i: 1) when (@i =< @columns) {
+
+  .@{name}-@{i} {
+	width: (@i * 100% / @columns);
+  }
+  .grid(@name, @columns, (@i + 1));
+
+};
+
+//
+// Generate media grid
+//
+.griding( @columns ) {
+	/*---------------------------------------
+    GRID
+  ---------------------------------------*/
+	.grid( col, @columns );
+	/*---------- columns lg ----------*/
+	@media @lg {
+    .grid(col-lg, @columns);
+  }
+	/*---------- columns md ----------*/
+	@media @md {
+    .grid(col-md, @columns);
+  }
+	/*---------- columns sm ----------*/
+	@media @sm {
+    .grid( col-sm, @columns );
+  }
+	/*---------- columns xs ----------*/
+	@media @xs {
+    .grid( col-xs, @columns );
+  }
+};
