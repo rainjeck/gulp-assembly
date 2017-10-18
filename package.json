@@ -10,10 +10,6 @@
   "author": "Tishuk Nadezda <166507@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "jquery": "^3.2.1",
-    "normalize.css": "^7.0.0"
-  },
-  "dependencies": {
     "bootstrap": "^3.3.7",
     "jquery": "^3.2.1"
   },
