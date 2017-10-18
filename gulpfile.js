@@ -3,30 +3,23 @@ var
 	plugin = require('gulp-load-plugins')(),
 	browserSync = require('browser-sync').create();
 
-var js = [
-  'node_modules/jquery/dist/jquery.min.js'
-];
-
-var css = [
-	'node_modules/normalize.css/normalize.css'
-];
+var list = require('./vendor-list.js');
 
 /*---------------------------------------
     VENDOR
 ---------------------------------------*/
 gulp.task('vendor', function() {
-	var stream = gulp.src(js)
-		.pipe(plugin.concat('vendor.js'))
-		.pipe(gulp.dest('./js'));
-	var stream = gulp.src(css)
-		.pipe(plugin.concat('vendor.css'))
-		.pipe(gulp.dest('./css'));
-	var stream = gulp.src(js)
-		.pipe(gulp.dest('js/vendor'))
-
-	var stream = gulp.src(css)
-		.pipe(gulp.dest('js/vendor'))
-	return stream;
+  var stream = gulp.src(list.js)
+    .pipe(plugin.concat('vendor.js'))
+    .pipe(gulp.dest('./js'));
+  var stream = gulp.src(list.css)
+    .pipe(plugin.concat('vendor.css'))
+    .pipe(gulp.dest('./css'));
+  var stream = gulp.src(list.js)
+    .pipe(gulp.dest('js/vendor'))
+  var stream = gulp.src(list.css)
+    .pipe(gulp.dest('js/vendor'))
+  return stream;
 });
 
 /*---------------------------------------
@@ -69,7 +62,7 @@ gulp.task('less', function () {
     PUG
 ---------------------------------------*/
 gulp.task('pug', function () {
-	return gulp.src('template/!(_base).pug')
+	return gulp.src('template/!(_*).pug')
 		.pipe(plugin.pug({pretty: true})).on("error", plugin.notify.onError("*** PUG ***: <%= error.message %>"))
 		.pipe(gulp.dest('./'));
 });
@@ -84,6 +77,10 @@ gulp.task('reload:pug', ['pug'], function (done) {
 gulp.task('reload:less', ['less'], function (done) {
     browserSync.reload();
     done();
+});
+gulp.task('reload:vendor', ['vendor'], function (done) {
+  browserSync.reload();
+  done();
 });
 
 /*---------------------------------------
@@ -101,7 +98,9 @@ gulp.task('watch', function() {
             baseDir: "./"
         }
     });
+
     gulp.watch("js/*.js").on('change', browserSync.reload);
+    gulp.watch("./vendor-list.js", ['reload:vendor']);
     gulp.watch("less/*.less", ['reload:less']);
     gulp.watch("template/*.pug", ['reload:pug']);
 });
